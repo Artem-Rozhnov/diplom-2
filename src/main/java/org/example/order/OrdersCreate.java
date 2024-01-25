@@ -8,7 +8,18 @@ public class OrdersCreate extends org.example.Client {
     public static final String BASE_ORDERS = "api/orders";
 
     @Step("Создание заказа")
-    public ValidatableResponse create(Orders orders) {
+    public ValidatableResponse create(Orders orders, String accessToken) {
+        Orders ordersSet = new Orders();
+        ordersSet.setIngredients(new String[]{"61c0c5a71d1f82001bdaaa6f", "61c0c5a71d1f82001bdaaa72"});
+        return specOrders()
+                .header("authorization", accessToken)
+                .body(ordersSet)
+                .when()
+                .post(BASE_ORDERS)
+                .then();
+    }
+    @Step("Создание заказа без авторизации")
+    public ValidatableResponse create1(Orders orders) {
         Orders ordersSet = new Orders();
         ordersSet.setIngredients(new String[]{"61c0c5a71d1f82001bdaaa6f", "61c0c5a71d1f82001bdaaa72"});
         return specOrders()

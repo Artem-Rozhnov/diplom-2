@@ -42,8 +42,13 @@ public class OrdersAssertions {
     public void getSuccessfullyOrder(ValidatableResponse response) {
         response.assertThat()
                 .statusCode(200)
-                .body("order", instanceOf(Order.class))
-                .body("order", notNullValue())
+                .body("orders._id",notNullValue())
+                .body("orders.ingredients",notNullValue())
+                .body("orders.status", notNullValue())
+                .body("orders.name", notNullValue())
+                .body("orders.createdAt", notNullValue())
+                .body("orders.updatedAt", notNullValue())
+                .body("orders.number", notNullValue())
                 .log().all();
     }
 

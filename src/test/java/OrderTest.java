@@ -18,7 +18,7 @@ public class OrderTest extends BaseTest {
         ValidatableResponse responseLogout = clientLogin.logout(refreshToken);
         checkLogin.logoutSuccessfully(responseLogout);
 
-        ValidatableResponse orderResponse = order.create(new Orders());
+        ValidatableResponse orderResponse = order.create1(new Orders());
         checkOrder.createdWithoutAuthorization(orderResponse);
     }
 
