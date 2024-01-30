@@ -9,7 +9,7 @@ public class GetOrderTest extends BaseTest {
     @Before
     public void setup() {
         super.setup();
-        order.create(new Orders());
+        order.create(new Orders(), accessToken);
     }
 
     @Description("Тест проводит проверку успешного получения списка заказов пользователя")

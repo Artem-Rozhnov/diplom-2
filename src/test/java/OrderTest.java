@@ -8,7 +8,7 @@ public class OrderTest extends BaseTest {
     @Description("Тест проводит проверку успешного создания заказа")
     @Test
     public void testOrderSuccessfulCreate() {
-        ValidatableResponse orderResponse = order.create(new Orders());
+        ValidatableResponse orderResponse = order.create(new Orders(), accessToken);
         checkOrder.createdSuccessfullyOrder(orderResponse);
     }
 
